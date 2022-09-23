@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script defer src="https://unpkg.com/alpinejs@3.10.3/dist/cdn.min.js"></script>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<title>Alpine JS</title>
+		<style>
+			body {
+				height: 95vh;
+				background-color: aquamarine;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		</style>
+	</head>
+	<body>
+
+    <div x-data="{
+      newText: '',
+      people: ['Sergey', 'Nikita', 'Tatiana'],
+      addPerson() {
+        this.people.push(this.newText);
+      }
+    }">
+  <form x-on:submit.prevent = "addPerson">
+    <input type="text" x-model="newText" class="p-4 rounded shadow-2xl">
+    <ul>
+      <template x-for="person in people">
+        <li x-text="person"></li>
+      </template>
+
+    </ul>
+  </form>
+  </div>
+
+
+    <!-- <div class="grid grid-cols-8">
+      <div class="flex flex-col md:order-last">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+      </div>
+    </div>
+		<div x-data="{isShowing: false}" class="bg-red-300 p-20 w-80 xl:w-4/5">
+
+
+			<button @click="isShowing = !isShowing" class="p-8 bg-blue-200 hover:text-yellow-400 hidden lg:block">Показать инфо</button>
+      <div x-show="isShowing" class="bg-green-400 w-40">Информация</div>
+		</div> -->
+
+
+
+		<!-- <button x-data x-on:click="alert('Произошел клик на кнопке')">Я кнопка. Нажми меня!</button>
+    <button x-data x-on:click="alert('Произошел клик на кнопке')">Я кнопка. Нажми меня!</button>
+    <button x-data x-on:click="alert('Произошел клик на кнопке')">Я кнопка. Нажми меня!</button>
+    <button x-data @click="alert('Произошел клик на кнопке')">Я кнопка. Нажми меня!</button> -->
+
+		<!-- <div x-data="{message: 'Hello!'}">
+        <input type="text" x-model.lazy="message">
+        <p>Message: <strong x-text="message"></strong></p>
+      </div> -->
+
+		<!-- <script>
+			let btn = document.querySelector("button");
+			btn.addEventListener("click", () => {
+				alert("Произошел клик на кнопке");
+			});
+		</script> -->
+	</body>
+</html>
